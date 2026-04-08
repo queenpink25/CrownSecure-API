@@ -30,6 +30,14 @@ CrownSecure-API/
 - bcrypt
 - Uvicorn
 
+
+HTTP Status Codes
+Code	     Meaning	         Description
+200	       ✅ Success	     Request completed successfully
+400	       ❌ Bad Request	   Invalid input data
+401      	 ❌ Unauthorized	 Invalid or missing API key
+404	       ❌ Not Found	     Endpoint doesn't exist
+
 ## Quick Start
 
 ### Prerequisites

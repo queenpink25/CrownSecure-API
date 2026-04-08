@@ -167,19 +167,16 @@ CrownSecure-API/
 
 ✅ Input validation with Pydantic
 
-📄 License
+License
 MIT License - feel free to use this project for learning or production!
 
-👑Author
-Asasira Queen Pinklen
-Software Engineer
-Women in Tech Advocate
+
 
 🙏 Acknowledgments
 FastAPI for the amazing framework
 JWT for secure authentication
 
-⚡Quick Commands Reference
+Quick Commands Reference
 Action	                 Command
 Start server	           python -m uvicorn main:app --reload
 Test API	               curl http://127.0.0.1:8000/api/delay/1
@@ -198,7 +195,7 @@ database.py - In-memory storage
 
 
 Main Functions:
-1. User Registration 📝
+1. User Registration 
 People can create accounts
 Passwords are encrypted (hashed with bcrypt)
 Stores user info (name, email, job)
@@ -223,7 +220,7 @@ Special endpoint to test performance
 Simulates delayed responses
 
 
-📊 Real-World Use Cases:
+Real-World Use Cases:
 Example 1: Mobile App Backend
 User opens app → Registers account → Gets API key 
 → App uses key to access user data → Secure!
@@ -299,8 +296,9 @@ It answers the questions:
 "Can they access this?" → Token validates
 "Is their data safe?" → Encryption protects
 
-
 Author
 Asasira Queen Pinklen
+Software Engineer
+Women in Tech Advocate
 '@ | Out-File -FilePath README.md -Encoding UTF8 -Force
 

@@ -5,7 +5,7 @@ from jose import JWTError, jwt
 from passlib.context import CryptContext
 import bcrypt
 
-SECRET_KEY = "crownsecure-secret-key"
+SECRET_KEY = "crownsecure-secret-key" 
 ALGORITHM = "HS256"
 ACCESS_TOKEN_EXPIRE_MINUTES = 60
 

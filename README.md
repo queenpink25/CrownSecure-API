@@ -1,42 +1,8 @@
-<<<<<<< HEAD
-﻿# 👑 CrownSecure API
-
-A secure REST API with JWT authentication for user management.
-
-## Quick Start
-
-pip install fastapi uvicorn python-jose passlib bcrypt
-python -m uvicorn main:app --reload
-
-## API Endpoints
-
-POST /api/register - Create account
-POST /api/login - Get API key
-GET /api/users/{id} - View profile
-PUT /api/users/{id} - Update profile
-DELETE /api/users/{id} - Delete account
-GET /api/delay/{seconds} - Test latency
-
-## Author
-Asasira Queen Pinklen
-=======
-
-
-  #  CrownSecure API
+# 👑 CrownSecure API
 
 A **secure RESTful API** with JWT authentication for user management, built with FastAPI.
-    
 
-Project Structure
-CrownSecure-API/
-├── main.py       # API endpoints
-├── auth.py       # JWT authentication logic
-├── models.py     # Pydantic data models
-├── database.py   # In-memory storage
-└── README.md     # Documentation
-
--
-##  Features
+## Features
 
 - **JWT Authentication** - Secure token-based authentication
 - **User Management** - Register, login, update, delete users
@@ -44,21 +10,13 @@ CrownSecure-API/
 - **Auto Documentation** - Interactive Swagger UI
 - **Load Testing** - Built-in delay endpoint for performance testing
 
-##  Tech Stack
+## Tech Stack
 
 - Python 3.10+
 - FastAPI
 - JWT (python-jose)
 - bcrypt
 - Uvicorn
-
-
-HTTP Status Codes
-Code	     Meaning	         Description
-200	       ✅ Success	     Request completed successfully
-400	       ❌ Bad Request	   Invalid input data
-401      	 ❌ Unauthorized	 Invalid or missing API key
-404	       ❌ Not Found	     Endpoint doesn't exist
 
 ## Quick Start
 
@@ -68,40 +26,26 @@ Code	     Meaning	         Description
 pip install fastapi uvicorn python-jose passlib bcrypt
 
 Run the API
+bash
 python -m uvicorn main:app --reload
-
 Open API Documentation
+text
 http://127.0.0.1:8000/docs
 
+
 API Endpoints
-Method	Endpoint	             What it does
-POST	  /api/register	         Create account
-POST  	/api/login	           Get API key
-GET	    /api/users/{id}	       View profile
-PUT   	/api/users/{id}	       Update profile
-DELETE	/api/users/{id}	       Delete account
-GET	    /api/delay/{seconds}   Test latency
-
-Get Your API Key
-# 1. Register
-curl -X POST "http://127.0.0.1:8000/api/register" \
-  -H "Content-Type: application/json" \
-  -d '{"name":"Your Name","email":"you@email.com","password":"123","job":"Developer"}'
-
-# 2. Login (copy the token you receive)
-curl -X POST "http://127.0.0.1:8000/api/login" \
-  -H "Content-Type: application/json" \
-  -d '{"email":"you@email.com","password":"123"}'
-
-# 3. Use your token
-curl -X GET "http://127.0.0.1:8000/api/users/1" \
-  -H "Authorization: Bearer YOUR_TOKEN"
-
+Method	     Endpoint	            Description        	Authentication
+POST	       /api/register	      Create new user	    ❌ No
+POST	       /api/login           Get JWT token      	❌ No
+GET	         /api/users/{id}      Get user by ID     	✅ Yes
+PUT          /api/users/{id}	    Update user        	✅ Yes
+DELETE	     /api/users/{id}	    Delete user	        ✅ Yes
+GET         /api/delay/{seconds}	Load testing	      ❌ No
 
 
 Authentication Guide
 1️⃣ Register a User
-bash
+
 curl -X POST "http://127.0.0.1:8000/api/register" \
   -H "Content-Type: application/json" \
   -d '{
@@ -110,14 +54,18 @@ curl -X POST "http://127.0.0.1:8000/api/register" \
     "password": "yourpassword",
     "job": "Developer"
   }'
+
+
 2️⃣ Get Your API Key (JWT Token)
-bash
+
 curl -X POST "http://127.0.0.1:8000/api/login" \
   -H "Content-Type: application/json" \
   -d '{
     "email": "your@email.com",
     "password": "yourpassword"
   }'
+
+
 Response:
 
 json
@@ -125,18 +73,22 @@ json
   "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
   "token_type": "bearer"
 }
+
+
 3️⃣ Use Your API Key
 bash
 curl -X GET "http://127.0.0.1:8000/api/users/1" \
   -H "Authorization: Bearer YOUR_TOKEN_HERE"
 
-📝 PowerShell Examples
+
+PowerShell Examples
 Register User
 powershell
 Invoke-RestMethod -Uri "http://127.0.0.1:8000/api/register" `
   -Method Post `
   -Body '{"name":"Queen","email":"queen@test.com","password":"pass123","job":"Dev"}' `
   -ContentType "application/json"
+
 
 Get API Key
 powershell
@@ -188,10 +140,51 @@ curl http://127.0.0.1:8000/api/delay/1
 # Expected response:
 # {"message":"Response delayed by 1 seconds"}
 
- Quick Test
-curl http://127.0.0.1:8000/api/delay/1
 
-Files
+📊 HTTP Status Codes
+Code	           Meaning     	      Description
+200	             ✅ Success	      Request completed successfully
+400              ❌ Bad Request   	Invalid input data
+401	             ❌ Unauthorized	  Invalid or missing API key
+404	             ❌ Not Found	      Endpoint doesn't exist
+
+
+Project Structure
+
+CrownSecure-API/
+├── main.py       # API endpoints
+├── auth.py       # JWT authentication logic
+├── models.py     # Pydantic data models
+├── database.py   # In-memory storage
+└── README.md     # Documentation
+
+🔒 Security Features
+✅ Passwords hashed with bcrypt
+
+✅ JWT tokens expire after 60 minutes
+
+✅ Bearer token authentication required for protected routes
+
+✅ Input validation with Pydantic
+
+License
+MIT License - feel free to use this project for learning or production!
+
+
+
+🙏 Acknowledgments
+FastAPI for the amazing framework
+JWT for secure authentication
+
+Quick Commands Reference
+Action	                 Command
+Start server	           python -m uvicorn main:app --reload
+Test API	               curl http://127.0.0.1:8000/api/delay/1
+Register user	           curl -X POST http://127.0.0.1:8000/api/register -H "Content-Type: application/json" -d  '{"name":"Test","email":"test@test.com","password":"pass","job":"Tester"}'
+Get API key	             curl -X POST http://127.0.0.1:8000/api/login -H "Content-Type: application/json" -d '{"email":"test@test.com","password":"pass"}'
+Get user	               curl -X GET http://127.0.0.1:8000/api/users/1 -H "Authorization: Bearer YOUR_TOKEN"
+
+📁 Files
 main.py - API endpoints
 
 auth.py - JWT authentication
@@ -201,33 +194,107 @@ models.py - Data models
 database.py - In-memory storage
 
 
-Security Features
-✅ Passwords hashed with bcrypt
+Main Functions:
+1. User Registration 
+People can create accounts
+Passwords are encrypted (hashed with bcrypt)
+Stores user info (name, email, job)
 
-✅ JWT tokens expire after 60 minutes
+2. User Login 
+Users login with email + password
+System gives them a special key (JWT token)
+This key proves they are who they say they are
 
-✅ Bearer token authentication required for protected routes
+3. API Keys (JWT Tokens) 
+Each user gets a unique key after login
+Key expires after 60 minutes (for security)
+Key must be used to access protected features
 
-✅ Input validation with Pydantic
+4. User Management 👥
+View user profiles
+Update user information
+Delete user accounts
+
+5. Load Testing 
+Special endpoint to test performance
+Simulates delayed responses
 
 
-Acknowledgments
-FastAPI for the amazing framework
+Real-World Use Cases:
+Example 1: Mobile App Backend
+User opens app → Registers account → Gets API key 
+→ App uses key to access user data → Secure!
 
-JWT for secure authentication
 
+Example 2: Web Application
+Website signup → API creates account → User logs in 
+→ Gets token → Accesses dashboard → All protected!
+
+Example 3: Microservice Authentication
+Service A needs user data → Requests token from CrownSecure 
+→ Verifies token → Gets authorized access
+
+
+ How Data Flows:
+text
+1. User → Sends email/password → CrownSecure
+2. CrownSecure → Verifies → Returns API Key
+3. User → Sends API Key with requests → CrownSecure
+4. CrownSecure → Validates key → Returns user data
+
+
+What It Stores:
+json
+{
+  "id": 1,
+  "name": "Queen Pinklen",
+  "email": "queenpink25@gmail.com",
+  "password": "hashed_encrypted_string",
+  "job": "Software Engineer"
+}
+
+
+Who Would Use This:
+User                 Why
+Developers	         Authentication for their apps
+Companies	           Secure employee/user management
+Startups	           Quick user system for MVP
+Students	           Learning API security
+
+
+Why It's Valuable:
+✅ Ready to use - Works immediately
+✅ Secure - Industry standard practices
+✅ Documented - Easy to understand
+✅ Testable - Built-in test endpoints
+✅ Extensible - Easy to add features
+
+
+What You Can Build With It:
+Social media app backend
+E-commerce user system
+Company employee portal
+Mobile app authentication
+SaaS product user management
+Any app that needs user accounts!
+
+📊 Simple Analogy:
+Think of CrownSecure API as a secure building reception:
+
+Feature	                  Analogy
+Register                 	Getting a new ID card
+Login	                    Scanning ID to enter
+API Key	                  Your temporary access pass
+Protected endpoints	      Restricted areas in building
+Token expiry	            Pass expires after 60 minutes
+
+CrownSecure API handles all the complex security stuff so you can focus on building your app!
+
+It answers the questions:
+"Is this user real?" → Registration verifies
+"Who is this?" → Login identifies
+"Can they access this?" → Token validates
+"Is their data safe?" → Encryption protects
 
 Author
-Asasira Queen Pinklen || Software Dev
-
-
-
-
-
-
-
-
-
-```bash
-pip install fastapi uvicorn python-jose passlib bcrypt
->>>>>>> 500b324d47a6a943a34a9019a6372869c0ee36f1
+Asasira Queen Pinklen

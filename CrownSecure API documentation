@@ -1,0 +1,108 @@
+1.	GITHUB Repo
+https://github.com/queenpink25/CrownSecure-API
+
+              API design and implementation 
+             
+Features
+•	JWT Authentication - Secure token-based authentication
+•	User Management - Register, login, update, delete users
+•	Password Hashing - bcrypt encryption for security
+•	Auto Documentation - Interactive Swagger UI
+•	Load Testing - Built-in delay endpoint for performance testing
+Tech Stack
+•	Python 3.10+
+•	FastAPI
+•	JWT (python-jose)
+•	bcrypt
+•	Uvicorn
+
+
+2.	API Documentation
+Swagger
+I)	GET User
+ 
+
+
+ii)     POST User
+
+ 
+ 
+Response
+ 
+
+
+
+iii)GET API User ID
+ 
+
+Responses
+
+
+ 
+
+
+ 
+
+iv) PUT/Update User
+
+ 
+
+Responses
+ 
+
+v)DELETE Delete User
+
+
+ 
+ 
+
+Responses
+ 
+
+ 
+
+vi)DELAY
+Request
+ 
+
+Response
+ 
+
+        
+3.	Test Cases & Execution Results
+			
+
+Test Case	Endpoint	Input		Expected	Result
+Valid Token	GET /users/1	Bearer token	200 	successful
+No Token	GET /users/1	None	401	Successful
+Invalid Token	GET /users/1	wrong token	401	Successful
+Update User		PUT /users/1	JSON body	200	successful
+					
+
+4.	Evidence of unit, integration and system testing
+Unit Testing
+
+ 
+Integration Testing
+ 
+ 
+System Testing
+
+ 
+
+Postman
+   
+
+
+5.	Automated testing implementation
+6.	CI/CD Pipeline
+
+
+ 
+   
+Jwt ci testing 
+ 
+
+Install dependencies
+ 
+

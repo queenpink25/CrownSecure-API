@@ -298,6 +298,4 @@ It answers the questions:
 
 Author
 Asasira Queen Pinklen
-#   t r i g g e r   c i 
- 
- 
+#

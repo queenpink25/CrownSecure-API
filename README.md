@@ -6,7 +6,7 @@ A **secure RESTful API** with JWT authentication for user management, built with
 
 - **JWT Authentication** - Secure token-based authentication
 - **User Management** - Register, login, update, delete users
-- **Password Hashing** - bcrypt encryption for security
+- **Pssword Hashing** - bcrypt encryption for security
 - **Auto Documentation** - Interactive Swagger UI
 - **Load Testing** - Built-in delay endpoint for performance testing
 
@@ -17,6 +17,10 @@ A **secure RESTful API** with JWT authentication for user management, built with
 - JWT (python-jose)
 - bcrypt
 - Uvicorn
+
+## Demo
+https://drive.google.com/file/d/1Z7JgzdNPNpRnf7JUvgo6iOJo4mUzsxSV/view?usp=sharing
+
 
 ## Quick Start
 

@@ -4,7 +4,7 @@ A **secure RESTful API** with JWT authentication for user management, built with
 
 ## Features
 
-- **JWT Authentication** - Secure token-based authentication
+- **JWT Authentication** - Secure token-based authentication.
 - **User Management** - Register, login, update, delete users
 - **Pssword Hashing** - bcrypt encryption for security
 - **Auto Documentation** - Interactive Swagger UI

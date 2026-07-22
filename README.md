@@ -1,5 +1,4 @@
 #  CrownSecure API    
-
 A **secure RESTful API** with JWT authentication for user management, built with FastAPI.
      
 ## Features
